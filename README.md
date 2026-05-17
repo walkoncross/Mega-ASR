@@ -61,8 +61,6 @@ Mega-ASR is designed for speech recognition in complex real-world acoustic envir
 
 To improve robustness, Mega-ASR is built with large-scale dirty speech data and a two-stage robustness training pipeline. The released resources include model weights, core training data, evaluation benchmarks, and WER/CER evaluation scripts, enabling reproducible research and further development of robust ASR systems for in-the-wild scenarios.
 
-### Highlights
-
 - **Robust dirty and general ASR**: supports stable recognition for both in-the-wild dirty speech and general audio.
 - **2M-scale dirty speech corpus**: covers noise, far-field recording, distortion, stuttering, echo, obstruction, and mixed acoustic interference.
 - **SFT + RL robustness training**: improves recognition stability under complex acoustic conditions through supervised fine-tuning and reinforcement learning.

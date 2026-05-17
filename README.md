@@ -44,13 +44,6 @@ This repository contains the official implementation, model weights, core traini
 
 ## 👀 What You Must See
 
-
-<p align="center">
-  <b>🔥 When conventional ASR systems struggle with dirty speech, Mega-ASR recovers what was actually said.</b>
-</p>
-
-The following examples show how Mega-ASR recovers speech content under challenging dirty speech conditions. Click **Listen** to play each audio sample.
-
 <table>
   <thead>
     <tr>
@@ -246,6 +239,7 @@ The following examples show how Mega-ASR recovers speech content under challengi
     </tr>
   </tbody>
 </table>
+
 ## 🔥🔥🔥 News!!
 
 - **May 20, 2025**: 🔥 We release **Mega-ASR**. Model weights on Hugging Face are coming soon.

@@ -27,8 +27,7 @@
 
 
 <p>
-We present <b>Mega-ASR</b>, an open-source speech recognition model for robust ASR under complex dirty speech conditions. Mega-ASR is designed to improve recognition stability on medium- and high-error-rate audio, including noisy, far-field, distorted, stuttering, echoic, obstructed, and mixed-interference speech.
-</p>
+We present <b>Mega-ASR</b>, an open-source speech recognition model designed for stable and robust ASR under complex dirty speech conditions, especially on medium- and high-error-rate audio.
 
 <p>
 This repository contains the official implementation, model weights, core training data, and evaluation toolkit for Mega-ASR.

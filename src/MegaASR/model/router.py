@@ -12,7 +12,7 @@ import torch.nn.functional as F
 import torchaudio
 from scipy.signal import resample_poly
 
-from .components.audio_quality import LogMelSpectrogram, create_audio_quality_model
+from .utils.audio_quality import LogMelSpectrogram, create_audio_quality_model
 
 class AudioQualityRouter:
     DEFAULT_CHECKPOINT = "ckpt/Mega-ASR/audio_quality_router/best_acc_model.pt"

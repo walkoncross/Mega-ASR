@@ -35,6 +35,11 @@ class LoRADeltaSwitch:
         for prefix in ("base_model.model.", "model."):
             if name.startswith(prefix):
                 name = name[len(prefix) :]
+        
+        # 兼容旧版本导出的 LoRA 路径，将 thinker.layers 映射为 thinker.model.layers
+        if name.startswith("thinker.layers."):
+            name = name.replace("thinker.layers.", "thinker.model.layers.", 1)
+            
         return name
 
     def _split_lora_key(self, key: str) -> tuple[str | None, str | None]:

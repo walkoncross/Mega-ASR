@@ -12,12 +12,12 @@ from safetensors.torch import load_file as safe_load_file
 
 from .Qwen3_ASR import Qwen3ASR
 from .router import AudioQualityRouter
-from .components.lora_switch import LoRADeltaSwitch
+from .utils.lora_switch import LoRADeltaSwitch
 
 class MegaASR:
     NAME = "Mega-ASR"
     DEFAULT_MODEL_DIR = Qwen3ASR.DEFAULT_MODEL_DIR
-    DEFAULT_LORA_DIR = "ckpt/Mega-ASR/ckpt/A2S-SFT-lora/mega-asr-merged"
+    DEFAULT_LORA_DIR = "ckpt/Mega-ASR/mega-asr-merged"
     DEFAULT_ROUTER_CHECKPOINT = AudioQualityRouter.DEFAULT_CHECKPOINT
     DOWNLOAD_URLS = {
         "lora": None,

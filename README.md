@@ -17,7 +17,20 @@ We introduce **MEGA-ASR**, the first foundation ASR model to target **full-scena
 </p>
 
 <p align="center">
+<<<<<<< HEAD
   <a href="wechat.html">
+=======
+  <a href="https://arxiv.org/abs/2604.08000">Technical Report 📖</a>
+  /
+  <a href="YOUR_VOICES_IN_THE_WILD_2M_LINK">Voices-in-the-wild-2M 🤗</a>
+  /
+  <a href="https://huggingface.co/zhifeixie/Mega-ASR">Mega-ASR Weights 🤗</a>
+  /
+  <a href="YOUR_VOICES_IN_THE_WILD_BENCH_LINK">Voices-in-the-Wild-Bench 🏆</a>
+</p>
+<p align="center">
+  <a href="YOUR_WECHAT_LINK_OR_QR_CODE">
+>>>>>>> c280af20baad87d2ce26c4eac5c3e67a8499bde8
     <img src="https://img.shields.io/badge/WeChat-Join%20Group-07C160?logo=wechat&logoColor=white">
   </a>
   <a href="https://xzf-thu.github.io/Mega-ASR/">
@@ -239,27 +252,27 @@ We introduce **MEGA-ASR**, the first foundation ASR model to target **full-scena
 
 **Installation**
 ```bash
-git clone https://github.com/QwenLM/Qwen3-ASR.git
-conda create -n mega-asr2 python=3.12 -y
-conda activate mega-asr2
+git clone https://github.com/xzf-thu/Mega-ASR.git
+cd Mega-ASR
 
-pip install torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0
-pip install -r mega_asr_requirements.txt
-pip install -e /path/to/Qwen3-ASR --no-deps
+conda create -n mega-asr python=3.10 -y
+conda activate mega-asr
+pip install -r requirements.txt
 ```
+
 **Download**
 ```bash
-git clone https://github.com/QwenLM/Qwen3-ASR.git
+python scripts/download.py
 ```
 
 **Offline Inference**
 ```bash
-git clone https://github.com/QwenLM/Qwen3-ASR.git
+bash scripts/inference.sh
 ```
 
-**WEBUI**
+Use your own audio:
 ```bash
-git clone https://github.com/QwenLM/Qwen3-ASR.git
+bash scripts/inference.sh --audio /path/to/audio.wav
 ```
 
 
@@ -411,4 +424,6 @@ This project will be released under the **Apache-2.0 License**. You can do every
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=gpt-omni/mini-omi%2Cxzf-thu/Mega-ASR&type=date&legend=bottom-right" />
    <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=gpt-omni/mini-omi%2Cxzf-thu/Mega-ASR&type=date&legend=bottom-right" />
  </picture>
+
 </a>
+

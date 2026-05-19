@@ -7,3 +7,4 @@ psutil
 matplotlib
 soundfile
 streamlit
+streamlit-mic-recorder

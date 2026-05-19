@@ -287,9 +287,8 @@ git clone https://github.com/QwenLM/Qwen3-ASR.git
 
 
 ## Finetuning
--
 
-Mega-ASR supports robustness adaptation through supervised fine-tuning (A2S-SFT) and reinforcement learning (DG-WGPO).
+You can further fine-tune Mega-ASR on your own scenarios and data. You can also use our repository to directly train Qwen3-ASR.
 
 ### A2S-SFT
 
@@ -372,10 +371,12 @@ Each input line requires `audio_path` and `answer` (ground-truth transcription).
 
 
 ## Licence, Citation and stars
-### License
-This project will be released under the Apache-2.0 License.
-### Citation
-```bash
+This project will be released under the **Apache-2.0 License**. You can do everything with Mega-ASR 🎉
+
+
+**Citation**: You can cite Mega-ASR using the following BibTeX entry. Thank you for your kindness 🙂
+
+```bibtex
 @article{xie2024mini,
   title={Mini-omni: Language models can hear, talk while thinking in streaming},
   author={Xie, Zhifei and Wu, Changqiao},

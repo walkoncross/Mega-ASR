@@ -8,15 +8,33 @@
 We introduce **MEGA-ASR**, the first foundation ASR model to target **full-scenario robust speech recognition in the wild** through systematic training on **7 atomic acoustic conditions** and **54 compound acoustic scenarios**. Built on **2.6M training samples** covering **noise, far-field speech, obstruction, echo and reverberation, recording artifacts, electronic distortion, and transmission dropout**, MEGA-ASR uses **three-stage SFT** and **DG-WGPO based RL** to achieve **up to nearly 30% gains** over leading open and closed source SOTA models in challenging acoustic environments.
 
 <p align="center"><u><em>You’ll come back to Mega-ASR — after finding the rest fail in the real world.</em></u></p>
+<p align="center">
+  <!-- First line -->
+  <a href="https://arxiv.org/abs/2604.08000">
+    <img src="https://img.shields.io/badge/arXiv-2604.08000-b31b1b?logo=arxiv&logoColor=white">
+  </a>
+  <a href="https://github.com/xzf-thu/Voices-in-the-wild-2M">
+    <img src="https://img.shields.io/badge/Voices--in--the--wild--2M-GitHub-black?logo=github&logoColor=white">
+  </a>
+  <a href="https://huggingface.co/">
+    <img src="https://img.shields.io/badge/HuggingFace-🤗-yellow">
+  </a>
+  <a href="https://github.com/xzf-thu/Mega-ASR">
+    <img src="https://img.shields.io/badge/Benchmark-GitHub-black?logo=github&logoColor=white">
+  </a>
+</p>
 
 <p align="center">
-  <a href="https://xzf-thu.github.io/Mega-ASR/">
-    <img src="https://img.shields.io/badge/Project-Homepage-purple">
+  <!-- Second line -->
+  <a href="YOUR_WECHAT_LINK_OR_QR_CODE">
+    <img src="https://img.shields.io/badge/WeChat-Join%20Group-07C160?logo=wechat&logoColor=white">
   </a>
-  <img src="https://img.shields.io/badge/Python-3.10+-blue">
-  <img src="https://img.shields.io/badge/PyTorch-2.x-orange">
-  <img src="https://img.shields.io/badge/ASR-Robust%20Speech%20Recognition-brightgreen">
-  <img src="https://img.shields.io/badge/License-Apache--2.0-green">
+  <a href="https://xzf-thu.github.io/Mega-ASR/">
+    <img src="https://img.shields.io/badge/Project-Page-blue?logo=googlechrome&logoColor=white">
+  </a>
+  <a href="https://x.com/XieZhifei14110">
+    <img src="https://img.shields.io/badge/X-@XieZhifei14110-black?logo=x&logoColor=white">
+  </a>
 </p>
 
 <p align="center">
@@ -47,46 +65,29 @@ We introduce **MEGA-ASR**, the first foundation ASR model to target **full-scena
 
 
 
-## 🔥🔥🔥 News!!
+### 🔥News
 
-- **May 20, 2025**: 🔥 We release **Mega-ASR**. Model weights on Hugging Face are coming soon.
-- **May 20, 2025**: 🔥 We release **Voices-in-the-Wild-2M**, a benchmark for in-the-wild ASR robustness evaluation. [[Dataset]](https://huggingface.co/datasets/zhifeixie/Voices-in-the-Wild-test-v2)
-- **Coming soon**: 🔥 We will release the **DAPO-LoRA training code**.
+- **May 21, 2025**: 🔥 We release **Voices-in-the-Wild-Bench**, a benchmark for in-the-wild ASR robustness evaluation.
+- **May 20, 2025**: 🔥 We release **Voices-in-the-Wild-2M**.
+- **May 20, 2025**: 🔥 We release the **Mega-ASR Inference and Training Codebase**.
+- **May 19, 2025**: 🔥 **Mega-ASR** model weights are now available on Hugging Face.
+- **May 19, 2025**: 🔥 We release the **Mega-ASR Technical Report**.
 
+### Overview
 
-**Overview**
-
-* **[Introduction](#introduction)**
-* **[Model Download](#model-download)**
 * **[Quick Start](#quick-start)**
-* **[Inference](#inference)**
+* **[Introduction](#inference)**
+* **[Inference and deployment](#inference)**
+* **[Finetuning](#finetune)**
 * **[Evaluation](#evaluation)**
-* **[Dirty Speech Data Generation](#dirty-speech-data-generation)**
-* **[Finetune](#finetune)**
-* **[Citation](#citation)**
-* **[License](#license)**
+* **[Citation and licence](#citation)**
 
 
-## Introduction
+### Quick Start
 
-Mega-ASR is designed for speech recognition in complex real-world acoustic environments, where speech signals are often affected by noise, reverberation, far-field recording, low volume, distortion, stuttering, echo, obstruction, and multiple overlapping interferences. Unlike general-purpose ASR systems that mainly perform well on clean or moderately noisy speech, Mega-ASR focuses on medium- and high-error-rate audio conditions, where recognition stability becomes more challenging.
-
-- **Robust dirty and general ASR**: supports stable recognition for both in-the-wild dirty speech and general audio.
-- **2M-scale dirty speech corpus**: covers noise, far-field recording, distortion, stuttering, echo, obstruction, and mixed acoustic interference.
-- **SFT + RL robustness training**: improves recognition stability under complex acoustic conditions through supervised fine-tuning and reinforcement learning.
-
-
-## Model Download
-
-| Model | Description | Download |
-|---|---|---|
-| **Mega-ASR for Dirty** | Optimized for dirty speech scenarios. | Coming soon |
-| **Mega-ASR for All** | Adds a routing module that automatically selects the recognition path for clean or degraded speech. | Coming soon |
-
-
-## Quick Start
-
+**Installation**
 ```bash
+git clone https://github.com/QwenLM/Qwen3-ASR.git
 conda create -n mega-asr2 python=3.12 -y
 conda activate mega-asr2
 
@@ -94,51 +95,42 @@ pip install torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0
 pip install -r mega_asr_requirements.txt
 pip install -e /path/to/Qwen3-ASR --no-deps
 ```
-
-
-## Inference
-
-For dirty / degraded audio:
-
+**Download**
 ```bash
-bash scripts/inference_MegaASR_for_dirty.sh
+git clone https://github.com/QwenLM/Qwen3-ASR.git
 ```
 
-For general audio with automatic routing:
-
+**Offline Inference**
 ```bash
-bash scripts/web_inference_MegaASR_for_all.sh
+git clone https://github.com/QwenLM/Qwen3-ASR.git
+```
+
+**WEBUI**
+```bash
+git clone https://github.com/QwenLM/Qwen3-ASR.git
 ```
 
 
-## Evaluation
+### Introduction
 
-Run Qwen3-ASR inference and compute WER (English) / CER (Chinese) on JSONL data:
-
-```bash
-CUDA_VISIBLE_DEVICES=6,7 python evaluate_wer.py \
-  --input_jsonl example/examples.jsonl \
-  --output_jsonl output_with_wer.jsonl
-```
-
-Each input line requires `audio_path` and `answer` (ground-truth transcription). Place `evaluate_wer.py` and `cn_tn.py` (used for Chinese text normalization) in the same directory.
-
-
-## Dirty Speech Data Generation
-
-The data generation code for our Voices-in-the-Wild training data is provided under `dataset/dataloader/`, with `scheduler.py` as the core scheduling entry.
-
-Detailed implementations of individual perturbation functions and exact parameter settings for acoustic corruptions are not included in this public release.
+**MEGA-ASR** is purpose-built for **full-scenario robust ASR in the wild**, especially excelling at **semantic recovery** and **local keyword reconstruction** under severe acoustic degradation. It substantially reduces common failure modes such as **hallucinations**, **empty outputs**, and **dropped utterances**, making speech recognition reliable in truly challenging real-world environments.
+#### Features 
+✅ **One model for the messy real world**: Covers **7 atomic acoustic conditions** and **54 compound acoustic scenarios** in a single model.
+✅ **Stronger recovery under severe distortion**: Excels at **semantic recovery** and **local keyword reconstruction**, greatly reducing **hallucinations**, **empty outputs**, and **dropped utterances**.
+✅ **SOTA robust ASR performance**: Achieves up to nearly **30% gains** over leading open and closed source SOTA models in challenging acoustic environments.
+<p align="center">
+  <img src="assets/figures/radar_results.png" alt="Results" width="100%">
+</p>
 
 
-## Finetune
+
+### Finetuning
 
 Mega-ASR supports robustness adaptation through supervised fine-tuning (A2S-SFT) and reinforcement learning (DG-WGPO).
 
 ```bash
-bash A2S-SFT_stage1.sh
-bash A2S-SFT_stage2.sh
-bash A2S-SFT_stage3.sh
+bash
+
 ```
 
 Training data is in JSONL format:
@@ -153,13 +145,57 @@ Training data is in JSONL format:
 
 The DG-WGPO reinforcement learning module will be released in a future update.
 
+### Evaluation
 
-## Citation
+<p align="center">
+  <img src="/docs/assets/training.png" alt="Mega-ASR Training" width="100%">
+</p>
 
-Citation information will be updated after the release of the paper.
+**Mega-ASR** is trained with an acoustic-to-semantic progressive supervised fine-tuning strategy: it first curriculum-trains the encoder and aligner on increasingly difficult samples from WER<30% to WER<50% and then WER<70%, then fine-tunes the LLM on WER<70% data to strengthen semantic recovery, and finally jointly fine-tunes the full encoder-aligner-LLM stack for end-to-end alignment.
+
+On top of Mega-ASR-Base, DG-WGPO further optimizes the model with WER-gated policy learning: low-WER samples emphasize token-level acoustic refinement, while high-WER samples emphasize sentence-level semantic reconstruction to reduce hallucinations, omissions, and off-audio outputs. The final reward combines a static WER-based accuracy signal with an anti-repetition gate and a dynamic dual-granularity reward, using fixed hyperparameters τ=0.3, αs=0.4, and αdyn=0.6.
 
 
-## License
+Run Qwen3-ASR inference and compute WER (English) / CER (Chinese) on JSONL data:
 
+```bash
+CUDA_VISIBLE_DEVICES=6,7 python evaluate_wer.py \
+  --input_jsonl example/examples.jsonl \
+  --output_jsonl output_with_wer.jsonl
+```
+
+Each input line requires `audio_path` and `answer` (ground-truth transcription). Place `evaluate_wer.py` and `cn_tn.py` (used for Chinese text normalization) in the same directory.
+
+**Mega-ASR** is evaluated across three benchmark families — classical academic test sets, robustness benchmarks, and our own in-the-wild compound benchmark.
+
+
+<p align="center">
+  <img src="/assets/tables/noisy_robust_asr_benchmarks.png" alt="Mega-ASR Results" width="100%">
+</p>
+
+
+
+### License
 This project will be released under the Apache-2.0 License.
+
+
+### Citation
+```bash
+@article{xie2024mini,
+  title={Mini-omni: Language models can hear, talk while thinking in streaming},
+  author={Xie, Zhifei and Wu, Changqiao},
+  journal={arXiv preprint arXiv:2408.16725},
+  year={2024}
+}
+```
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=mega-asr%2Fmega-asr&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mega-asr/mega-asr&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mega-asr/mega-asr&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mega-asr/mega-asr&type=date&legend=top-left" />
+ </picture>
+</a>
 

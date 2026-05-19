@@ -1,9 +1,10 @@
 <p align="center">
   <img src="assets/figures/mega_asr_logo.png" alt="Mega-ASR Logo" width="100">
 </p>
-<h1 align="center">Mega-ASR: Towards In-the-Wild^2 Speech Recognition</h1>
+<h1 align="center">Mega-ASR: Towards In-the-Wild^2 Speech Recognition via Scaling Up Real-world Acoustic Simulation</h1>
 <p align="center">
-  <b>Robust Automatic Speech Recognition for Complex Real-World Acoustic Scenarios</b> 
+  <b>You’ll come back to Mega-ASR — after finding the rest fail in the real world.
+  </b> 
 </p>
 
 <p align="center">

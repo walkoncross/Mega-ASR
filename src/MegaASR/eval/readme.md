@@ -25,7 +25,7 @@ the Mega-ASR LoRA, and the router from the checkpoint directory:
 ckpt/Mega-ASR/
 ├── Qwen3-ASR-1.7B
 ├── mega-asr-merged
-└── audio_quality_router/best_acc_model.pt
+└── audio_quality_router/best_acc_model.safetensors
 ```
 
 ### Run Evaluation

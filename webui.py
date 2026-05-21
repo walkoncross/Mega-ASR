@@ -765,7 +765,7 @@ def load_megaasr_model():
         kwargs = dict(
             model_path=CKPT_DIR / "Qwen3-ASR-1.7B",
             lora_dir=CKPT_DIR / "mega-asr-merged",
-            router_checkpoint=CKPT_DIR / "audio_quality_router/best_acc_model.pt",
+            router_checkpoint=CKPT_DIR / "audio_quality_router/best_acc_model.safetensors",
             routing_enabled=ROUTING_ENABLED,
             quality_threshold=ROUTING_THRESHOLD,
         )

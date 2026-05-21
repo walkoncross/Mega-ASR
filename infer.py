@@ -47,7 +47,7 @@ def main():
     model = MegaASR(
         model_path=ckpt_dir / "Qwen3-ASR-1.7B",
         lora_dir=ckpt_dir / "mega-asr-merged",
-        router_checkpoint=ckpt_dir / "audio_quality_router/best_acc_model.pt",
+        router_checkpoint=ckpt_dir / "audio_quality_router/best_acc_model.safetensors",
         routing_enabled=args.routing,
         quality_threshold=args.threshold,
         device_map=args.device_map,

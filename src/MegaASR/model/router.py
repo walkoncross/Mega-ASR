@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math
 import os
+import json
 from pathlib import Path
 from typing import Any
 
@@ -9,13 +10,14 @@ import soundfile as sf
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torchaudio
+from safetensors.torch import load_file as safe_load_file
+from safetensors.torch import safe_open
 from scipy.signal import resample_poly
 
 from .utils.audio_quality import LogMelSpectrogram, create_audio_quality_model
 
 class AudioQualityRouter:
-    DEFAULT_CHECKPOINT = "ckpt/Mega-ASR/audio_quality_router/best_acc_model.pt"
+    DEFAULT_CHECKPOINT = "ckpt/Mega-ASR/audio_quality_router/best_acc_model.safetensors"
 
     def __init__(
         self,
@@ -35,15 +37,24 @@ class AudioQualityRouter:
         self.model, self.mel_extractor = self._load_model()
 
     def _load_model(self) -> tuple[torch.nn.Module, torch.nn.Module]:
-        checkpoint = torch.load(
-            self.checkpoint_path,
-            map_location=self.device,
-            weights_only=False,
-        )
-        config = checkpoint.get("config", {}).get("model", {})
+        checkpoint_path = Path(self.checkpoint_path)
+        if checkpoint_path.suffix == ".safetensors":
+            with safe_open(str(checkpoint_path), framework="pt", device="cpu") as f:
+                metadata = f.metadata()
+            checkpoint_config = json.loads(metadata.get("config", "{}"))
+            config = checkpoint_config.get("model", {})
+            state_dict = safe_load_file(str(checkpoint_path), device=self.device)
+        else:
+            checkpoint = torch.load(
+                self.checkpoint_path,
+                map_location=self.device,
+                weights_only=False,
+            )
+            config = checkpoint.get("config", {}).get("model", {})
+            state_dict = checkpoint["model_state_dict"]
 
         model = create_audio_quality_model(config)
-        model.load_state_dict(checkpoint["model_state_dict"])
+        model.load_state_dict(state_dict)
         model.to(self.device)
         model.eval()
 
